@@ -6,8 +6,8 @@ namespace Timer
     public partial class Form1 : Form
     {
         System.Windows.Forms.Timer timer;
-        int totalMilliseconds = 0;
-        const string timerDefault = "00:00:00:000";
+        int totalSeconds = 0;
+        const string timerDefault = "00:00:00";
 
         public Form1()
         {
@@ -30,18 +30,23 @@ namespace Timer
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            totalMilliseconds = 0;
+            totalSeconds = 0;
             TimerTextBox.Text = timerDefault;
         }
         public void UpdateTextBox(object sender, EventArgs e)
         {
-            totalMilliseconds += 1000;
-            int hours = totalMilliseconds / 3600000;
-            int minutes = (totalMilliseconds % 3600000) / 60000;
-            int seconds = (totalMilliseconds % 60000) / 1000;
-            int milliseconds = totalMilliseconds % 1000;
+            totalSeconds++;
+            int hours = totalSeconds / 3600;
+            if (hours > 99)
+            {
+                timer.Stop();
+                MessageBox.Show("Timer reset");
+                TimerTextBox.Text = timerDefault;
+            }
+            int minutes = totalSeconds / 60 % 60;
+            int seconds = totalSeconds % 60;
 
-            TimerTextBox.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}:{milliseconds:D3}";
+            TimerTextBox.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
     }
 }
