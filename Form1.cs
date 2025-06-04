@@ -41,6 +41,7 @@ namespace Timer
             {
                 timer.Stop();
                 MessageBox.Show("Timer reset");
+                totalSeconds = 0;
                 TimerTextBox.Text = timerDefault;
             }
             int minutes = totalSeconds / 60 % 60;
