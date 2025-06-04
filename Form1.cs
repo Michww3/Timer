@@ -37,6 +37,9 @@ namespace Timer
         {
             totalSeconds++;
             int hours = totalSeconds / 3600;
+            int minutes = totalSeconds / 60 % 60;
+            int seconds = totalSeconds % 60;
+
             if (hours > 99)
             {
                 timer.Stop();
@@ -44,8 +47,6 @@ namespace Timer
                 totalSeconds = 0;
                 TimerTextBox.Text = timerDefault;
             }
-            int minutes = totalSeconds / 60 % 60;
-            int seconds = totalSeconds % 60;
 
             TimerTextBox.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
