@@ -31,7 +31,7 @@
             this.StartButtn = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.StopButtton = new System.Windows.Forms.Button();
-            this.TimerTextBox = new System.Windows.Forms.Label();
+            this.TimerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StartButtn
@@ -64,14 +64,14 @@
             this.StopButtton.UseVisualStyleBackColor = true;
             this.StopButtton.Click += new System.EventHandler(this.StopButtton_Click);
             // 
-            // TimerTextBox
+            // TimerLabel
             // 
-            this.TimerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TimerTextBox.Location = new System.Drawing.Point(228, 117);
-            this.TimerTextBox.Name = "TimerTextBox";
-            this.TimerTextBox.Size = new System.Drawing.Size(301, 90);
-            this.TimerTextBox.TabIndex = 6;
-            this.TimerTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TimerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TimerLabel.Location = new System.Drawing.Point(228, 117);
+            this.TimerLabel.Name = "TimerLabel";
+            this.TimerLabel.Size = new System.Drawing.Size(301, 90);
+            this.TimerLabel.TabIndex = 6;
+            this.TimerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TimerTextBox);
+            this.Controls.Add(this.TimerLabel);
             this.Controls.Add(this.StopButtton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.StartButtn);
@@ -94,7 +94,7 @@
         private System.Windows.Forms.Button StartButtn;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button StopButtton;
-        private System.Windows.Forms.Label TimerTextBox;
+        private System.Windows.Forms.Label TimerLabel;
     }
 }
 

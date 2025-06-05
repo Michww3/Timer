@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using Timer.Helpers;
+using Timer.Config;
 
 namespace Timer
 {
@@ -7,15 +9,14 @@ namespace Timer
     {
         System.Windows.Forms.Timer timer;
         int totalSeconds = 0;
-        const string timerDefault = "00:00:00";
 
         public Form1()
         {
             InitializeComponent();
-            TimerTextBox.Text = timerDefault;
+            TimerLabel.Text = Strings.timerDefault;
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
-            timer.Tick += UpdateTextBox;
+            timer.Tick += UpdateTimerText;
         }
 
         private void StartButtn_Click(object sender, EventArgs e)
@@ -31,24 +32,14 @@ namespace Timer
         private void ResetButton_Click(object sender, EventArgs e)
         {
             totalSeconds = 0;
-            TimerTextBox.Text = timerDefault;
+            TimerLabel.Text = Strings.timerDefault;
+            timer.Stop();
         }
-        public void UpdateTextBox(object sender, EventArgs e)
+
+        public void UpdateTimerText(object sender, EventArgs e)
         {
-            totalSeconds++;
-            int hours = totalSeconds / 3600;
-            int minutes = totalSeconds / 60 % 60;
-            int seconds = totalSeconds % 60;
-
-            if (hours > 99)
-            {
-                timer.Stop();
-                MessageBox.Show("Timer reset");
-                totalSeconds = 0;
-                TimerTextBox.Text = timerDefault;
-            }
-
-            TimerTextBox.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+            TimerUpdate.Update(ref totalSeconds, timer, TimerLabel);
         }
+
     }
 }
