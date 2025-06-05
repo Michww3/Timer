@@ -5,7 +5,7 @@ namespace Timer.Helpers
 {
     public class TimerUpdate
     {
-        public static void Update(ref int totalSeconds, System.Windows.Forms.Timer timer, Label TimerTextBox)
+        public static void Update(ref int totalSeconds, System.Windows.Forms.Timer timer, Label TimerTextLabel)
         {
             totalSeconds++;
             int hours = totalSeconds / 3600;
@@ -17,10 +17,10 @@ namespace Timer.Helpers
                 timer.Stop();
                 MessageBox.Show("Timer reset");
                 totalSeconds = 0;
-                TimerTextBox.Text = Strings.timerDefault;
+                TimerTextLabel.Text = Strings.timerDefault;
             }
 
-            TimerTextBox.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+            TimerTextLabel.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
     }
 }
